@@ -5,13 +5,13 @@ const { Dog, Temperament } = require("../db.js");
 
 const router = Router();
 const dbDogs = require("./dbDogs.js");
-const apiRoutes = require("./apiDogs.js");
+const tempsD = require("./tempsdogs.js");
 const { allDogs } = require("../controllers/controllers.js");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 router.use("/dbDogs", dbDogs);
-router.use("/apiRoute", apiRoutes);
+router.use("/tempsD", tempsD);
 
 router.get("/", async (req, res) => {
   try {
