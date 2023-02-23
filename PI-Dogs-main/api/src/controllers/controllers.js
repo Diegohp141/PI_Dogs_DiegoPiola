@@ -64,9 +64,9 @@ const getDogsDb = async (Dog) => {
 
 //funcion para concatenar la informacion del la api con la de la base de datos || function to concatenate the information from the api with that of the database
 
-const allDogs = async () => {
-  const dogsApi = getApiDogs();
-  const dogsDb = getDogsDb();
+const allDogs = async (Dog) => {
+  const dogsApi = await getApiDogs();
+  const dogsDb = await getDogsDb(Dog);
   const totalDogs = dogsApi.concat(dogsDb);
 
   return totalDogs;
