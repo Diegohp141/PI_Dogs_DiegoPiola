@@ -1,5 +1,12 @@
 import axios from "axios";
-import { GET_DOGS, GET_TEMPS, ORDER_BY, DOG_DETAIL } from "./actionsTypes.js";
+import {
+  GET_DOGS,
+  GET_TEMPS,
+  ORDER_BY,
+  DOG_DETAIL,
+  GET_DB_DOGS,
+  GET_DOGS_BY_TEMP,
+} from "./actionsTypes.js";
 
 export function getAllDogs() {
   return async function (dispatch) {
@@ -35,5 +42,19 @@ export function getDogDetail(id) {
       type: DOG_DETAIL,
       payload: detail.data,
     });
+  };
+}
+
+export function getCreatedDogs(payload) {
+  return {
+    type: GET_DB_DOGS,
+    payload,
+  };
+}
+
+export function getDogsByTemp(payload) {
+  return {
+    type: GET_DOGS_BY_TEMP,
+    payload,
   };
 }
