@@ -1,0 +1,14 @@
+.searchBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.filterBy {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchI {
+  align-self: center;
+}
