@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import Card from "./Card";
-import Pagination from "./Pagination";
+import Card from "../card/Card.jsx";
+import Pagination from "../pagination/Pagination.jsx";
 import { useSelector /* , useDispatch */ } from "react-redux";
 import style from "./Cards.module.css";
-import SearchBar from "./SearchBar.jsx";
+import SearchBar from "../searchBar/SearchBar.jsx";
 
 export default function Cards() {
   //const dispatch = useDispatch();
@@ -20,14 +20,9 @@ export default function Cards() {
     setCurrentPage(pageNumber);
   };
 
-  const handlerOrder = (value) => {
-    setCurrentPage(1);
-    setOrder(`Ordenado ${value}`);
-  };
-
   return (
     <>
-      <SearchBar handlerOrder={handlerOrder} />
+      <SearchBar handlerpage={setCurrentPage} handlerOrder={setOrder} order={order} />
       <Pagination dogsPerPage={dogsPerPage} dogs={dogs.length} pagination={pagination} />
       <section className={style.dSection}>
         {currentDogs &&

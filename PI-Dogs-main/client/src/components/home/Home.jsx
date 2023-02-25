@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { getAllDogs, getTemperaments } from "../redux/actions/actions.js";
-import Cards from "./Cards.jsx";
-import NavBar from "./NavBar.jsx";
+import { getAllDogs, getTemperaments } from "../../redux/actions/actions.js";
+import Cards from "../cards/Cards.jsx";
+import NavBar from "../navBar/NavBar.jsx";
 
 export default function Home() {
   const dispatch = useDispatch();

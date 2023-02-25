@@ -1,20 +1,20 @@
 import React from "react";
 import sytle from "./SearchBar.module.css";
-import Search from "./Search";
+import Search from "../search/Search.jsx";
 import { useSelector, useDispatch } from "react-redux";
-//import { useState } from "react";
-import { orderBy } from "../redux/actions/actions";
+import { orderBy } from "../../redux/actions/actions.js";
 
-export default function SearchBar({ handlerOrder }) {
+export default function SearchBar({ handlerpage, handlerOrder, order }) {
   const dispatch = useDispatch();
   const temps = useSelector((state) => state.temperaments);
 
-  console.log(handlerOrder);
+  console.log(handlerpage);
 
   const handleOrderBy = (e) => {
     e.preventDefault();
     dispatch(orderBy(e.target.value));
-    handlerOrder(e.target.value);
+    handlerpage(1);
+    handlerOrder(`Ordenado ${e.target.value}`);
   };
   return (
     <div className={sytle.searchBar}>

@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "./NavBar.jsx";
+import NavBar from "../navBar/NavBar.jsx";
 
 export default function DogCreation() {
   return (

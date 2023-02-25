@@ -1,4 +1,4 @@
-import { GET_DOGS, GET_TEMPS, ORDER_BY } from "../actions/actionsTypes.js";
+import { GET_DOGS, GET_TEMPS, ORDER_BY, DOG_DETAIL } from "../actions/actionsTypes.js";
 
 const initialState = {
   allDogs: [],
@@ -15,11 +15,13 @@ function rootReducer(state = initialState, action) {
         allDogs: action.payload,
         dogsToFilter: action.payload,
       };
+
     case GET_TEMPS:
       return {
         ...state,
         temperaments: action.payload,
       };
+
     case ORDER_BY:
       let arrSorted;
       if (action.payload === "Asc") {
@@ -50,6 +52,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         dogsToFilter: arrSorted,
+      };
+
+    case DOG_DETAIL:
+      return {
+        ...state,
+        detail: action.payload,
       };
     default:
       return state;
