@@ -22,13 +22,25 @@ export const validateMax = (max = "", min = 100, inputName) => {
   return "";
 };
 
-/* export const validateAllErrors = (error) => {
-  //let result = false;
+export const validateAllErrors = (error) => {
+  let result = true;
   for (const key in error) {
-    if (true) {
-      const element = error[key];
-      console.log(element);
+    if (error[key] !== "") {
+      result = false;
+      return result;
     }
   }
+  return result;
 };
- */
+
+/* const [error, setError] = useState({
+  name: "",
+  minW: "",
+  maxW: "",
+  minH: "",
+  maxH: "",
+  minLs: "",
+  maxLs: "",
+  image: "",
+  temperament: "you must  choose at least one temperament",
+}); */

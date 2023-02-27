@@ -3,12 +3,7 @@ import NavBar from "../navBar/NavBar.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { createDog, getTemperaments } from "../../redux/actions/actions.js";
-import {
-  /* validateAllErrors, */
-  validateMax,
-  validateMin,
-  validateName,
-} from "../../validatios.js";
+import { validateAllErrors, validateMax, validateMin, validateName } from "../../validatios.js";
 
 export default function DogCreation() {
   const dispatch = useDispatch();
@@ -37,10 +32,12 @@ export default function DogCreation() {
     temperament: "you must  choose at least one temperament",
   });
 
+  const [trueFalse, setTrueFalse] = useState(false);
+
   useEffect(() => {
-    dispatch(getTemperaments()); /* 
-    validateAllErrors(error); */
-  }, [dispatch, error, inputs]);
+    dispatch(getTemperaments());
+    trueOrFalse(validateAllErrors(error));
+  }, [dispatch, error]);
 
   function capitalize(str) {
     return str[0].toUpperCase() + str.slice(1);
@@ -58,6 +55,8 @@ export default function DogCreation() {
       ...inputs,
       temperament: [...inputs.temperament, e.target.value],
     });
+
+    setError({ ...error, temperament: "" });
   };
 
   const handlerSubmit = (e) => {
@@ -118,6 +117,10 @@ export default function DogCreation() {
     handlerErrors(e);
   };
 
+  const trueOrFalse = (value) => {
+    setTrueFalse(value);
+  };
+
   return (
     <div>
       <NavBar />
@@ -125,30 +128,37 @@ export default function DogCreation() {
         <div>
           <label>Name:</label>
           <input type="text" name="name" value={inputs.name} onChange={multiHandlers} />
+          {error.name !== "" ? <p>{error.name}</p> : null}
         </div>
         <div>
           <label>Min Weight</label>
           <input type="text" name="minW" value={inputs.minW} onChange={multiHandlers} />
+          {error.minW !== "" ? <p>{error.minW}</p> : null}
         </div>
         <div>
           <label>Max Weight</label>
           <input type="text" name="maxW" value={inputs.maxW} onChange={multiHandlers} />
+          {error.maxW !== "" ? <p>{error.maxW}</p> : null}
         </div>
         <div>
           <label>Min Height</label>
           <input type="text" name="minH" value={inputs.minH} onChange={multiHandlers} />
+          {error.minH !== "" ? <p>{error.minH}</p> : null}
         </div>
         <div>
           <label>Max Height</label>
           <input type="text" name="maxH" value={inputs.maxH} onChange={multiHandlers} />
+          {error.maxH !== "" ? <p>{error.maxH}</p> : null}
         </div>
         <div>
           <label>Min Life Span</label>
           <input type="text" name="minLs" value={inputs.minLs} onChange={multiHandlers} />
+          {error.minLs !== "" ? <p>{error.minLs}</p> : null}
         </div>
         <div>
           <label>Max Life Span</label>
           <input type="text" name="maxLs" value={inputs.maxLs} onChange={multiHandlers} />
+          {error.maxLs !== "" ? <p>{error.maxLs}</p> : null}
         </div>
         <div>
           <label>Img Url</label>
@@ -163,8 +173,10 @@ export default function DogCreation() {
                 </option>
               ))}
           </select>
+          {error.temperament !== "" ? <p>{error.temperament}</p> : null}
         </div>
-        <input type="submit" value="Create Dog" />
+        {trueFalse === true ? console.log("a") : console.log("b")}
+        <input type="submit" value="Create Dog" disabled={!trueFalse} />
       </form>
       {inputs.temperament.length === 0
         ? null
