@@ -4,14 +4,14 @@ import Search from "../search/Search.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { getCreatedDogs, orderBy, getDogsByTemp } from "../../redux/actions/actions.js";
 
-export default function SearchBar({ handlerpage, handlerOrder, order }) {
+export default function SearchBar({ setPage, handlerOrder, order }) {
   const dispatch = useDispatch();
   const temps = useSelector((state) => state.temperaments);
 
   const handleOrderBy = (e) => {
     e.preventDefault();
     dispatch(orderBy(e.target.value));
-    handlerpage(1);
+    setPage(1);
     handlerOrder(`Ordenado ${e.target.value}`);
   };
 

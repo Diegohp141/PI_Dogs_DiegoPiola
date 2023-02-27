@@ -15,7 +15,7 @@ router.use("/tempsD", tempsD);
 
 router.get("/", async (req, res) => {
   try {
-    const info = await allDogs(Dog);
+    const info = await allDogs(Dog, Temperament);
     res.send(info);
   } catch (error) {
     res.send(error.toString());

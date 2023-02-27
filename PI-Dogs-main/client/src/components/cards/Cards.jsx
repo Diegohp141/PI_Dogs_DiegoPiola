@@ -22,7 +22,7 @@ export default function Cards() {
 
   return (
     <>
-      <SearchBar handlerpage={setCurrentPage} handlerOrder={setOrder} order={order} />
+      <SearchBar setPage={setCurrentPage} handlerOrder={setOrder} order={order} />
       <Pagination dogsPerPage={dogsPerPage} dogs={dogs.length} pagination={pagination} />
       <section className={style.dSection}>
         {currentDogs &&
@@ -34,6 +34,7 @@ export default function Cards() {
               weight={dog.weight}
               image={dog.image ? dog.image : dog.img}
               key={dog.id}
+              temperament={dog.temperament}
             />
           ))}
       </section>

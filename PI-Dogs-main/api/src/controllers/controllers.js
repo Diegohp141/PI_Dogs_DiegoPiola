@@ -1,6 +1,6 @@
 require("dotenv").config();
 const { API_KEY } = process.env;
-const { Temperament } = require("../db.js");
+const { Dog, Temperament } = require("../db.js");
 
 //Funcion para llenar los temperamentos el la DB || function to fill the database with the information of the temperaments coming from the api
 const fillTemps = async (Temperament) => {
@@ -50,13 +50,13 @@ const getApiDogs = async () => {
 };
 
 //funcion para traer la informacion del la base de datos || function to retrieve the information from the database
-const getDogsDb = async (Dog) => {
+const getDogsDb = async (Dog, Temperament) => {
   return await Dog.findAll({
     includes: {
       model: Temperament,
-      atributes: ["name"],
+      attributes: ["name"],
       through: {
-        atributes: [],
+        attributes: [],
       },
     },
   });
@@ -64,9 +64,9 @@ const getDogsDb = async (Dog) => {
 
 //funcion para concatenar la informacion del la api con la de la base de datos || function to concatenate the information from the api with that of the database
 
-const allDogs = async (Dog) => {
+const allDogs = async (Dog, Temperament) => {
   const dogsApi = await getApiDogs();
-  const dogsDb = await getDogsDb(Dog);
+  const dogsDb = await getDogsDb(Dog, Temperament);
   const totalDogs = dogsApi.concat(dogsDb);
 
   return totalDogs;
