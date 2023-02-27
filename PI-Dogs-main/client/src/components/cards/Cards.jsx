@@ -30,7 +30,6 @@ export default function Cards() {
             <Card
               id={dog.id}
               name={dog.name}
-              height={dog.height}
               weight={dog.weight}
               image={dog.image ? dog.image : dog.img}
               key={dog.id}
