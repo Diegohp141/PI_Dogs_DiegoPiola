@@ -6,6 +6,7 @@ import {
   GET_DB_DOGS,
   GET_DOGS_BY_TEMP,
   SEARCH_DOG,
+  CREATE_DOG,
 } from "../actions/actionsTypes.js";
 
 const initialState = {
@@ -101,6 +102,9 @@ function rootReducer(state = initialState, action) {
         ...state,
         dogsToFilter: dogSearch,
       };
+
+    case CREATE_DOG:
+      return { ...state };
     default:
       return state;
   }

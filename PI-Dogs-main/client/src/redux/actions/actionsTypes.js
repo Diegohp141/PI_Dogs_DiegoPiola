@@ -5,3 +5,4 @@ export const DOG_DETAIL = "DOG_DETAIL";
 export const GET_DB_DOGS = "GET_DB_DOGS";
 export const GET_DOGS_BY_TEMP = "GET_DOGS_BY_TEMP";
 export const SEARCH_DOG = "SEARCH_DOG";
+export const CREATE_DOG = "CREATE_DOG";

@@ -66,3 +66,12 @@ export function searchDog(payload) {
     payload,
   };
 }
+
+export function createDog(payload) {
+  return async function (dispatch) {
+    console.log(payload);
+    const data = await axios.post("http://localhost:3001/dbDogs/CreateDog", payload);
+    console.log(data);
+    return data;
+  };
+}

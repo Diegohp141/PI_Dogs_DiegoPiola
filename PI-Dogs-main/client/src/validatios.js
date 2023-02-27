@@ -9,20 +9,26 @@ export const validateName = (str = "") => {
 };
 export const validateMin = (min = "") => {
   if (min === "") return "input can not be empty";
-  if (isNaN(min)) return "You must enter an integer";
+  if (isNaN(min)) return "You must enter an number";
   if (min <= 0 || min > 100) return "You must enter a number between 1 and 100";
   return "";
 };
 
-export const validateMax = (max = "", min = 100) => {
+export const validateMax = (max = "", min = 100, inputName) => {
   if (max === "") return "input can not be empty";
-  if (isNaN(max)) return "You must enter an integer";
+  if (isNaN(max)) return "You must enter an number";
   if (min <= 0 || max > 100) return "You must enter a number between 1 and 100";
-  if (min > max) return "The maximum weight cannot be lower than the minimum weight.";
+  if (min >= max) return `The maximum ${inputName} cannot be lower than the minimum ${inputName}.`;
   return "";
 };
 
-export const validateTemps = (arr) => {
-  if (arr.length === 0) return "you must  choose at least one temperament";
-  return "";
+/* export const validateAllErrors = (error) => {
+  //let result = false;
+  for (const key in error) {
+    if (true) {
+      const element = error[key];
+      console.log(element);
+    }
+  }
 };
+ */
