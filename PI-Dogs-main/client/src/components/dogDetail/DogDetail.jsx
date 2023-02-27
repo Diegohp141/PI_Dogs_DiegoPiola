@@ -4,8 +4,6 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import NavBar from "../navBar/NavBar.jsx";
 import { getDogDetail } from "../../redux/actions/actions.js";
-import DogApi from "../dogApi/DogApi.jsx";
-import DogDb from "../dogDb/DogDb.jsx";
 
 export default function DogDetail() {
   const { id } = useParams();
@@ -20,7 +18,7 @@ export default function DogDetail() {
   return (
     <div>
       <NavBar />
-      {dogDetail && dogDetail.createdByDB ? <DogDb /> : <DogApi />}
+      {dogDetail && <div>hola</div>}
     </div>
   );
 }
