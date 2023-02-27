@@ -6,6 +6,7 @@ import {
   DOG_DETAIL,
   GET_DB_DOGS,
   GET_DOGS_BY_TEMP,
+  SEARCH_DOG,
 } from "./actionsTypes.js";
 
 export function getAllDogs() {
@@ -55,6 +56,13 @@ export function getCreatedDogs(payload) {
 export function getDogsByTemp(payload) {
   return {
     type: GET_DOGS_BY_TEMP,
+    payload,
+  };
+}
+
+export function searchDog(payload) {
+  return {
+    type: SEARCH_DOG,
     payload,
   };
 }

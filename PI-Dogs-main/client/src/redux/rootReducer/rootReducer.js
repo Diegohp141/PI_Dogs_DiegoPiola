@@ -5,6 +5,7 @@ import {
   DOG_DETAIL,
   GET_DB_DOGS,
   GET_DOGS_BY_TEMP,
+  SEARCH_DOG,
 } from "../actions/actionsTypes.js";
 
 const initialState = {
@@ -77,6 +78,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         dogsToFilter: action.payload === "AllD" ? state.allDogs : dbOrApi,
       };
+
     case GET_DOGS_BY_TEMP:
       const resetDogs2 = state.allDogs;
       const dogsByTemps =
@@ -88,6 +90,16 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         dogsToFilter: dogsByTemps,
+      };
+
+    case SEARCH_DOG:
+      const dogSearch =
+        action.payload === ""
+          ? state.allDogs
+          : state.dogsToFilter.filter((dog) => dog.name.toLowerCase() === action.payload);
+      return {
+        ...state,
+        dogsToFilter: dogSearch,
       };
     default:
       return state;

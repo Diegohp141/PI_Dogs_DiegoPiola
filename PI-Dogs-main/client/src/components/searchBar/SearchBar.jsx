@@ -69,8 +69,7 @@ export default function SearchBar({ setPage, handlerOrder, order }) {
             ))}
         </select>
       </div>
-
-      <Search className={sytle.searchI} />
+      <Search className={sytle.searchI} setPage={setPage} />
     </div>
   );
 }
