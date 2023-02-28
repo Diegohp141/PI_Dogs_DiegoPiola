@@ -1,5 +1,44 @@
 .divContainer {
-  background-image: ("../../img/dogLanding.jpg");
+  background-image: url("../../img/dogLanding.jpg");
+  background-size: cover;
   height: 100vh;
-  padding: 10px;
+  width: 100vw;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  color: rgb(20, 94, 20);
+  font-size: 8vh;
+  text-shadow: 0px 0px 30px white;
+  margin-top: 150px;
+}
+
+.subTitle {
+  color: rgb(20, 94, 20);
+  font-size: 8vh;
+  text-shadow: 0px 0px 30px white;
+  margin-bottom: 80px;
+}
+
+/* .navLink {
+  cursor: pointer;
+  text-shadow: 0px 0px 30px white;
+  color: blueviolet;  
+}
+ */
+
+.btn {
+  color: rgba(20, 94, 20, 0.2);
+  background-color: rgb(11, 36, 11);
+  font-size: 8vh;
+  text-shadow: 0px 0px 30px rgb(201, 184, 184);
+  border-radius: 10px;
+  border: 3px solid rgb(20, 94, 20);
+  background: none;
+  padding: 0px 10px 0px 10px;
+  margin-bottom: 250px;
 }
