@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchDog } from "../../redux/actions/actions";
+import style from "./Search.module.css";
 
 export default function Search({ setPage }) {
   const dispatch = useDispatch();
@@ -34,8 +35,11 @@ export default function Search({ setPage }) {
         value={search}
         onChange={handlerInput}
         onKeyDown={handlerEnter}
+        className={style.iSearch}
       />
-      <button onClick={handlerSearch}>Search</button>
+      <button onClick={handlerSearch} className={style.btnSearch}>
+        Search
+      </button>
     </div>
   );
 }

@@ -9,11 +9,13 @@ export default function Pagination({ dogsPerPage, dogs, pagination }) {
   }
 
   return (
-    <nav>
+    <nav className={style.navContainer}>
       <ul className={style.ulDogs}>
         {pageNumber.map((number) => (
           <li key={number}>
-            <button onClick={() => pagination(number)}>{number}</button>
+            <button onClick={() => pagination(number)} className={style.btnPag}>
+              {number}
+            </button>
           </li>
         ))}
       </ul>

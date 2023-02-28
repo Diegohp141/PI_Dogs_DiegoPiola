@@ -1,0 +1,26 @@
+.iSearch {
+  font-size: 2vh;
+  border-radius: 100px;
+  text-align: center;
+  padding: 0.2vh;
+  margin-right: 1vw;
+  background-color: white(20, 94, 20, 0.8);
+  color: rgb(20, 94, 20);
+  border: none;
+}
+
+.btnSearch {
+  font-size: 2vh;
+  padding: 0.2vh;
+  border: 2px solid rgb(20, 94, 20);
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  background-color: rgba(20, 94, 20, 0.8);
+}
+
+.btnSearch:hover {
+  color: rgb(201, 184, 184);
+  font-size: 2.2vh;
+  cursor: pointer;
+}

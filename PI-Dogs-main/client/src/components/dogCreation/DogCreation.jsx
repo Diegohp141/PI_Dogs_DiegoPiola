@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { createDog, getTemperaments } from "../../redux/actions/actions.js";
 import { validateAllErrors, validateMax, validateMin, validateName } from "../../validatios.js";
+import style from "./DogCreation.module.css";
 
 export default function DogCreation() {
   const dispatch = useDispatch();
@@ -122,7 +123,7 @@ export default function DogCreation() {
   };
 
   return (
-    <div>
+    <div className={style.formContainer}>
       <NavBar />
       <form onSubmit={handlerSubmit}>
         <div>

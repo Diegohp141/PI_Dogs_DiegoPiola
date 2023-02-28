@@ -1,5 +1,14 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
 .dSection {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 95%;
+  height: 90%;
 }

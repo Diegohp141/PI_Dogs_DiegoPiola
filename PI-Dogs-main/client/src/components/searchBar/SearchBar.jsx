@@ -1,5 +1,5 @@
 import React from "react";
-import sytle from "./SearchBar.module.css";
+import style from "./SearchBar.module.css";
 import Search from "../search/Search.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { getCreatedDogs, orderBy, getDogsByTemp } from "../../redux/actions/actions.js";
@@ -25,10 +25,10 @@ export default function SearchBar({ setPage, handlerOrder, order }) {
     dispatch(getDogsByTemp(e.target.value));
   };
   return (
-    <div className={sytle.searchBar}>
-      <div>
-        <p>Order by</p>
-        <select>
+    <div className={style.searchBar}>
+      <div className={style.orderBy}>
+        <p className={style.pOrderBy}>Order by</p>
+        <select className={style.sOrderBy}>
           <option value="Asc" onClick={handleOrderBy}>
             Name: A-Z
           </option>
@@ -44,9 +44,9 @@ export default function SearchBar({ setPage, handlerOrder, order }) {
         </select>
       </div>
 
-      <div className={sytle.filterBy}>
-        <p>Filter by</p>
-        <select>
+      <div className={style.filterBy}>
+        <p className={style.pFilterBy}>Filter by</p>
+        <select className={style.sFilterBy}>
           <option value="AllD" onClick={handlerDbOrApi}>
             All dogs
           </option>
@@ -57,7 +57,7 @@ export default function SearchBar({ setPage, handlerOrder, order }) {
             DataBb
           </option>
         </select>
-        <select>
+        <select className={style.sFilterBy}>
           <option value="AllT" onClick={handlerTemperaments}>
             All temperaments
           </option>
@@ -69,7 +69,7 @@ export default function SearchBar({ setPage, handlerOrder, order }) {
             ))}
         </select>
       </div>
-      <Search className={sytle.searchI} setPage={setPage} />
+      <Search setPage={setPage} />
     </div>
   );
 }

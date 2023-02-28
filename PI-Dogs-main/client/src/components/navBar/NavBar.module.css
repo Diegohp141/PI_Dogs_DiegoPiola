@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 3vh 3vw 3vh 3vw;
+  height: 8vh;
+}
+
+.divLink {
+  width: 40vw;
+}

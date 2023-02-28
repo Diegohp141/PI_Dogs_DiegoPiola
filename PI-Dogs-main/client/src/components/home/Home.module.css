@@ -1,0 +1,6 @@
+.divHome {
+  background-image: url("../../img/dogHome2.jpg");
+  background-size: cover;
+  height: 100vh;
+  color: white;
+}

@@ -5,7 +5,7 @@ const { Dog, Temperament } = require("../db.js");
 
 router.get("/", async (req, res) => {
   try {
-    const data = await getDogsDb(Dog);
+    const data = await getDogsDb();
     res.send(data);
   } catch (error) {
     res.send(`Ocurrio un error no se pudo acceder a la información`);
@@ -23,7 +23,6 @@ router.post("/CreateDog", async (req, res) => {
       where: { name: temperament },
     });
     dog.addTemperament(dogTemperament);
-    console.log(dog);
     res.status(201).send("Dog sucsesfully created");
   } catch (error) {
     res.status(404).send(error.toString());

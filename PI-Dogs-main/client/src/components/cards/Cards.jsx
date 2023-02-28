@@ -21,9 +21,8 @@ export default function Cards() {
   };
 
   return (
-    <>
+    <main className={style.mainContainer}>
       <SearchBar setPage={setCurrentPage} handlerOrder={setOrder} order={order} />
-      <Pagination dogsPerPage={dogsPerPage} dogs={dogs.length} pagination={pagination} />
       <section className={style.dSection}>
         {currentDogs &&
           currentDogs.map((dog) => (
@@ -37,6 +36,7 @@ export default function Cards() {
             />
           ))}
       </section>
-    </>
+      <Pagination dogsPerPage={dogsPerPage} dogs={dogs.length} pagination={pagination} />
+    </main>
   );
 }
