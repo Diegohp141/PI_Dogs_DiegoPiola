@@ -7,6 +7,7 @@ import {
   GET_DOGS_BY_TEMP,
   SEARCH_DOG,
   CREATE_DOG,
+  DELETE_DOG,
 } from "../actions/actionsTypes.js";
 
 const initialState = {
@@ -105,6 +106,10 @@ function rootReducer(state = initialState, action) {
 
     case CREATE_DOG:
       return { ...state };
+
+    case DELETE_DOG:
+      return { ...state };
+
     default:
       return state;
   }

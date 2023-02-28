@@ -43,31 +43,32 @@ export default function SearchBar({ setPage, handlerOrder, order }) {
           </option>
         </select>
       </div>
-
       <div className={style.filterBy}>
         <p className={style.pFilterBy}>Filter by</p>
-        <select className={style.sFilterBy}>
-          <option value="AllD" onClick={handlerDbOrApi}>
-            All dogs
-          </option>
-          <option value="Api" onClick={handlerDbOrApi}>
-            Api
-          </option>
-          <option value="Db" onClick={handlerDbOrApi}>
-            DataBb
-          </option>
-        </select>
-        <select className={style.sFilterBy}>
-          <option value="AllT" onClick={handlerTemperaments}>
-            All temperaments
-          </option>
-          {temps &&
-            temps.map((elem) => (
-              <option key={elem.id} value={elem.name} onClick={handlerTemperaments}>
-                {elem.name}
-              </option>
-            ))}
-        </select>
+        <div>
+          <select className={`${style.sFilterBy} ${style.margin}`}>
+            <option value="AllD" onClick={handlerDbOrApi}>
+              All dogs
+            </option>
+            <option value="Api" onClick={handlerDbOrApi}>
+              Api
+            </option>
+            <option value="Db" onClick={handlerDbOrApi}>
+              DataBb
+            </option>
+          </select>
+          <select className={style.sFilterBy}>
+            <option value="AllT" onClick={handlerTemperaments}>
+              All temperaments
+            </option>
+            {temps &&
+              temps.map((elem) => (
+                <option key={elem.id} value={elem.name} onClick={handlerTemperaments}>
+                  {elem.name}
+                </option>
+              ))}
+          </select>
+        </div>
       </div>
       <Search setPage={setPage} />
     </div>

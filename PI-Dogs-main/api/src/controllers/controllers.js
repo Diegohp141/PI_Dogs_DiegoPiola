@@ -79,7 +79,7 @@ const getDogsDb = async () => {
     name: d.name,
     height: d.height,
     weight: d.weight,
-    life_span: d.life,
+    life_span: d.life_span,
     img: d.img,
     temperament: d.temperaments.map((t) => t.name).join(", "),
     createdByDB: d.createdByDB,

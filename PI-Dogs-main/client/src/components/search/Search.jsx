@@ -31,7 +31,7 @@ export default function Search({ setPage }) {
       <input
         type="text"
         name="search"
-        placeholder="Search dog"
+        placeholder="Search dog breed"
         value={search}
         onChange={handlerInput}
         onKeyDown={handlerEnter}

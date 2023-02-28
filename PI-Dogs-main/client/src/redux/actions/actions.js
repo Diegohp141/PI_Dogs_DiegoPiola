@@ -75,3 +75,12 @@ export function createDog(payload) {
     return data;
   };
 }
+
+export function deleteDog(payload) {
+  return async function (dispatch) {
+    console.log(payload);
+    const data = await axios.delete(`http://localhost:3001/dbDogs/delete/${payload}`);
+    console.log(data);
+    return data;
+  };
+}

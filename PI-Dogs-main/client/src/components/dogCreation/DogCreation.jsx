@@ -2,12 +2,13 @@ import React from "react";
 import NavBar from "../navBar/NavBar.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-import { createDog, getTemperaments } from "../../redux/actions/actions.js";
+import { createDog, getTemperaments, getAllDogs } from "../../redux/actions/actions.js";
 import { validateAllErrors, validateMax, validateMin, validateName } from "../../validatios.js";
-import style from "./DogCreation.module.css";
+import { useHistory } from 'react-router-dom';
 
 export default function DogCreation() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const temps = useSelector((state) => state.temperaments);
   const [inputs, setInputs] = useState({
     name: "",
@@ -36,9 +37,9 @@ export default function DogCreation() {
   const [trueFalse, setTrueFalse] = useState(false);
 
   useEffect(() => {
-    dispatch(getTemperaments());
+    if(!temps.length) dispatch(getTemperaments());
     trueOrFalse(validateAllErrors(error));
-  }, [dispatch, error]);
+  }, [dispatch, error]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function capitalize(str) {
     return str[0].toUpperCase() + str.slice(1);
@@ -67,21 +68,12 @@ export default function DogCreation() {
       height: (inputs.minH || inputs.maxH) === "" ? null : `${inputs.minH} - ${inputs.maxH}`,
       weight: `${inputs.minW} - ${inputs.maxW}`,
       life_span: `${inputs.minLs} - ${inputs.maxLs} years`,
-      img: `${inputs.image}`,
+      img: inputs.image.length ? inputs.image : 'https://bit.ly/3kxht6a',
       temperament: inputs.temperament,
     };
     dispatch(createDog(result));
-    setInputs({
-      name: "",
-      minW: "",
-      maxW: "",
-      minH: "",
-      maxH: "",
-      minLs: "",
-      maxLs: "",
-      image: "",
-      temperament: "",
-    });
+    dispatch(getAllDogs());
+    history.push('/home');
   };
 
   const handlerErrors = (e) => {
@@ -123,7 +115,7 @@ export default function DogCreation() {
   };
 
   return (
-    <div className={style.formContainer}>
+    <div>
       <NavBar />
       <form onSubmit={handlerSubmit}>
         <div>

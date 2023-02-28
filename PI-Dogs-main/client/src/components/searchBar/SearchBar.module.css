@@ -38,11 +38,14 @@
 
 .sFilterBy {
   border: none;
-  font-size: 1.6vh;
+  font-size: 1.7vh;
   border-radius: 10px;
   padding: 0.4vh;
   text-align: center;
   background-color: rgba(20, 94, 20, 0.8);
   color: white;
-  margin-bottom: 1vh;
+}
+
+.margin {
+  margin-right: 1vh;
 }
