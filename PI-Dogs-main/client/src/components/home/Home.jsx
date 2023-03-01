@@ -5,6 +5,7 @@ import { getAllDogs, getTemperaments } from "../../redux/actions/actions.js";
 import Cards from "../cards/Cards.jsx";
 import NavBar from "../navBar/NavBar.jsx";
 import style from "./Home.module.css";
+console.log("a");
 
 export default function Home() {
   const dispatch = useDispatch();

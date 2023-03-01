@@ -7,6 +7,7 @@ import { deleteDog, getAllDogs, getDogDetail } from "../../redux/actions/actions
 import style from "./DogDetail.module.css";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
+console.log("a");
 
 export default function DogDetail() {
   const { id } = useParams();

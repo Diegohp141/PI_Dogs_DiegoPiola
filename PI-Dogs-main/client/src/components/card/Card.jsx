@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./Card.module.css";
 import { NavLink } from "../navBar/NavBar.jsx";
+console.log("a");
 
 export default function Card({ id, name, weight, image, temperament }) {
   return (

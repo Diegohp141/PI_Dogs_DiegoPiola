@@ -3,6 +3,7 @@ import style from "./SearchBar.module.css";
 import Search from "../search/Search.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { getCreatedDogs, orderBy, getDogsByTemp } from "../../redux/actions/actions.js";
+console.log("a");
 
 export default function SearchBar({ setPage, handlerOrder, order }) {
   const dispatch = useDispatch();
@@ -18,11 +19,13 @@ export default function SearchBar({ setPage, handlerOrder, order }) {
   const handlerDbOrApi = (e) => {
     e.preventDefault();
     dispatch(getCreatedDogs(e.target.value));
+    setPage(1);
   };
 
   const handlerTemperaments = (e) => {
     e.preventDefault();
     dispatch(getDogsByTemp(e.target.value));
+    setPage(1);
   };
   return (
     <div className={style.searchBar}>

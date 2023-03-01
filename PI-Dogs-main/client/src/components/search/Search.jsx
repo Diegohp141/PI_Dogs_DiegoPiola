@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchDog } from "../../redux/actions/actions";
 import style from "./Search.module.css";
+console.log("a");
 
 export default function Search({ setPage }) {
   const dispatch = useDispatch();

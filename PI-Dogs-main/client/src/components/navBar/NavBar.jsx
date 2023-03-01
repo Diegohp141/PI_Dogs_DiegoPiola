@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import style from "./NavBar.module.css";
 import styled from "styled-components";
+console.log("a");
 
 export const NavLink = styled(Link)`
   text-decoration: none;

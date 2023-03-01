@@ -2,6 +2,7 @@ const { Router } = require("express");
 const { Dog, Temperament } = require("../db.js");
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
+console.log("a");
 
 const router = Router();
 const dbDogs = require("./dbDogs.js");

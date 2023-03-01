@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./Pagination.module.css";
+console.log("a");
 
 export default function Pagination({ dogsPerPage, dogs, pagination }) {
   const pageNumber = [];

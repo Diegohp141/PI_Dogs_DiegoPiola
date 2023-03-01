@@ -8,6 +8,7 @@ import {
   GET_DOGS_BY_TEMP,
   SEARCH_DOG,
 } from "./actionsTypes.js";
+console.log("a");
 
 export function getAllDogs() {
   return async function (dispatch) {

@@ -5,6 +5,7 @@ import Pagination from "../pagination/Pagination.jsx";
 import { useSelector /* , useDispatch */ } from "react-redux";
 import style from "./Cards.module.css";
 import SearchBar from "../searchBar/SearchBar.jsx";
+console.log("a");
 
 export default function Cards() {
   //const dispatch = useDispatch();

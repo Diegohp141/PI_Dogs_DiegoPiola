@@ -2,6 +2,7 @@ require("dotenv").config();
 const { API_KEY } = process.env;
 const { Dog, Temperament } = require("../db.js");
 //const axios = require("axios");
+console.log("a");
 
 //Funcion para llenar los temperamentos el la DB || function to fill the database with the information of the temperaments coming from the api
 const fillTemps = async (Temperament) => {
