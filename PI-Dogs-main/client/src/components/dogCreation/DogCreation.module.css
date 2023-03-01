@@ -51,6 +51,21 @@
   padding: 0.5vh;
 }
 
+.inputSubmit:hover {
+  font-size: 2.5vh;
+  cursor: pointer;
+}
+
+.disableInput {
+  border: 2px solid rgba(125, 119, 119, 0.8);
+  color: rgb(182, 175, 175);
+  background-color: rgba(125, 119, 119, 0.8);
+  align-self: center;
+  text-align: center;
+  margin-top: 1vh;
+  padding: 0.5vh;
+}
+
 .error {
   margin-bottom: 1vh;
 }

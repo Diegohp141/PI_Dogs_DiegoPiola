@@ -237,10 +237,10 @@ export default function DogCreation() {
           {error.temperament !== "" ? <p className={style.error}>{error.temperament}</p> : null}
         </div>
         <input
-          className={style.inputSubmit}
+          className={inputs.temperament.length ? style.inputSubmit : style.disableInput}
           type="submit"
           value="Create Dog"
-          disabled={!trueFalse}
+          disabled={!trueFalse || !inputs.temperament.length ? true : false}
         />
       </form>
       <div className={style.row}>
