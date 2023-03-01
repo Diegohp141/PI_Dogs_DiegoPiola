@@ -1,0 +1,11 @@
+.divInput {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1vh;
+}
+
+.inputText {
+  border-radius: 2px;
+  background: none;
+  color: white;
+}
