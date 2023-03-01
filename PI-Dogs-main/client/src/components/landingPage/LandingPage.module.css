@@ -32,13 +32,5 @@
  */
 
 .btn {
-  color: rgba(20, 94, 20, 0.2);
-  background-color: rgb(11, 36, 11);
-  font-size: 8vh;
-  text-shadow: 0px 0px 30px rgb(201, 184, 184);
-  border-radius: 10px;
-  border: 3px solid rgb(20, 94, 20);
-  background: none;
-  padding: 0px 10px 0px 10px;
-  margin-bottom: 250px;
+  font-size: 50px;
 }

@@ -22,6 +22,7 @@ export default function DogDetail() {
     e.preventDefault();
     dispatch(deleteDog(id));
     dispatch(getAllDogs());
+    alert(`${dogDetail.name} was successfully deleted`);
     history.push("/home");
   };
 

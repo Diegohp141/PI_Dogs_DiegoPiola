@@ -44,3 +44,9 @@ export const validateAllErrors = (error) => {
   image: "",
   temperament: "you must  choose at least one temperament",
 }); */
+
+export const filterArray = (arr, value) => {
+  let result = arr.filter((elem) => elem !== value);
+  if (arr.length > 0) return result;
+  return "you must  choose at least one temperament";
+};

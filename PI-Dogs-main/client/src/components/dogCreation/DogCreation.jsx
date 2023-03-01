@@ -3,8 +3,15 @@ import NavBar from "../navBar/NavBar.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { createDog, getTemperaments, getAllDogs } from "../../redux/actions/actions.js";
-import { validateAllErrors, validateMax, validateMin, validateName } from "../../validatios.js";
-import { useHistory } from 'react-router-dom';
+import {
+  filterArray,
+  validateAllErrors,
+  validateMax,
+  validateMin,
+  validateName,
+} from "../../validatios.js";
+import { useHistory } from "react-router-dom";
+import style from "./DogCreation.module.css";
 
 export default function DogCreation() {
   const dispatch = useDispatch();
@@ -37,7 +44,7 @@ export default function DogCreation() {
   const [trueFalse, setTrueFalse] = useState(false);
 
   useEffect(() => {
-    if(!temps.length) dispatch(getTemperaments());
+    if (!temps.length) dispatch(getTemperaments());
     trueOrFalse(validateAllErrors(error));
   }, [dispatch, error]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -53,10 +60,14 @@ export default function DogCreation() {
   };
 
   const handlerSelect = (e) => {
-    setInputs({
-      ...inputs,
-      temperament: [...inputs.temperament, e.target.value],
-    });
+    if (inputs.temperament.includes(e.target.value)) {
+      console.log(true);
+    } else {
+      setInputs({
+        ...inputs,
+        temperament: [...inputs.temperament, e.target.value],
+      });
+    }
 
     setError({ ...error, temperament: "" });
   };
@@ -68,12 +79,14 @@ export default function DogCreation() {
       height: (inputs.minH || inputs.maxH) === "" ? null : `${inputs.minH} - ${inputs.maxH}`,
       weight: `${inputs.minW} - ${inputs.maxW}`,
       life_span: `${inputs.minLs} - ${inputs.maxLs} years`,
-      img: inputs.image.length ? inputs.image : 'https://bit.ly/3kxht6a',
+      img: inputs.image.length ? inputs.image : "https://bit.ly/3kxht6a",
       temperament: inputs.temperament,
     };
     dispatch(createDog(result));
+    alert(`${result.name} sucsesfully created`);
     dispatch(getAllDogs());
-    history.push('/home');
+
+    history.push("/home");
   };
 
   const handlerErrors = (e) => {
@@ -114,51 +127,106 @@ export default function DogCreation() {
     setTrueFalse(value);
   };
 
+  const handlerDelete = (e) => {
+    e.preventDefault();
+    //console.log(e.target.id);
+    let result = filterArray(inputs.temperament, e.target.id);
+    setInputs({ ...inputs, temperament: result });
+  };
+
   return (
-    <div>
+    <div className={style.container}>
       <NavBar />
-      <form onSubmit={handlerSubmit}>
-        <div>
+      <form onSubmit={handlerSubmit} className={style.form}>
+        <div className={style.divInput}>
           <label>Name:</label>
-          <input type="text" name="name" value={inputs.name} onChange={multiHandlers} />
-          {error.name !== "" ? <p>{error.name}</p> : null}
+          <input
+            type="text"
+            className={style.inputText}
+            name="name"
+            value={inputs.name}
+            onChange={multiHandlers}
+          />
         </div>
-        <div>
+        {error.name !== "" ? <p className={style.error}>{error.name}</p> : null}
+        <div className={style.divInput}>
           <label>Min Weight</label>
-          <input type="text" name="minW" value={inputs.minW} onChange={multiHandlers} />
-          {error.minW !== "" ? <p>{error.minW}</p> : null}
+          <input
+            type="text"
+            className={style.inputText}
+            name="minW"
+            value={inputs.minW}
+            onChange={multiHandlers}
+          />
         </div>
-        <div>
+        {error.minW !== "" ? <p className={style.error}>{error.minW}</p> : null}
+        <div className={style.divInput}>
           <label>Max Weight</label>
-          <input type="text" name="maxW" value={inputs.maxW} onChange={multiHandlers} />
-          {error.maxW !== "" ? <p>{error.maxW}</p> : null}
+          <input
+            type="text"
+            className={style.inputText}
+            name="maxW"
+            value={inputs.maxW}
+            onChange={multiHandlers}
+          />
         </div>
-        <div>
+        {error.maxW !== "" ? <p className={style.error}>{error.maxW}</p> : null}
+        <div className={style.divInput}>
           <label>Min Height</label>
-          <input type="text" name="minH" value={inputs.minH} onChange={multiHandlers} />
-          {error.minH !== "" ? <p>{error.minH}</p> : null}
+          <input
+            type="text"
+            className={style.inputText}
+            name="minH"
+            value={inputs.minH}
+            onChange={multiHandlers}
+          />
         </div>
-        <div>
+        {error.minH !== "" ? <p className={style.error}>{error.minH}</p> : null}
+        <div className={style.divInput}>
           <label>Max Height</label>
-          <input type="text" name="maxH" value={inputs.maxH} onChange={multiHandlers} />
-          {error.maxH !== "" ? <p>{error.maxH}</p> : null}
+          <input
+            type="text"
+            className={style.inputText}
+            name="maxH"
+            value={inputs.maxH}
+            onChange={multiHandlers}
+          />
         </div>
-        <div>
+        {error.maxH !== "" ? <p className={style.error}>{error.maxH}</p> : null}
+        <div className={style.divInput}>
           <label>Min Life Span</label>
-          <input type="text" name="minLs" value={inputs.minLs} onChange={multiHandlers} />
-          {error.minLs !== "" ? <p>{error.minLs}</p> : null}
+          <input
+            type="text"
+            className={style.inputText}
+            name="minLs"
+            value={inputs.minLs}
+            onChange={multiHandlers}
+          />
         </div>
-        <div>
+        {error.minLs !== "" ? <p className={style.error}>{error.minLs}</p> : null}
+        <div className={style.divInput}>
           <label>Max Life Span</label>
-          <input type="text" name="maxLs" value={inputs.maxLs} onChange={multiHandlers} />
-          {error.maxLs !== "" ? <p>{error.maxLs}</p> : null}
+          <input
+            type="text"
+            className={style.inputText}
+            name="maxLs"
+            value={inputs.maxLs}
+            onChange={multiHandlers}
+          />
         </div>
-        <div>
+        {error.maxLs !== "" ? <p className={style.error}>{error.maxLs}</p> : null}
+        <div className={style.divInput}>
           <label>Img Url</label>
-          <input type="text" name="image" value={inputs.image} onChange={multiHandlers} />
+          <input
+            type="text"
+            className={style.inputText}
+            name="image"
+            value={inputs.image}
+            onChange={multiHandlers}
+          />
         </div>
         <div>
-          <select>
+          <select className={style.inputSelect}>
             {temps &&
               temps.map((elem) => (
                 <option key={elem.id} value={elem.name} onClick={handlerSelect}>
@@ -166,18 +234,27 @@ export default function DogCreation() {
                 </option>
               ))}
           </select>
-          {error.temperament !== "" ? <p>{error.temperament}</p> : null}
+          {error.temperament !== "" ? <p className={style.error}>{error.temperament}</p> : null}
         </div>
-        {trueFalse === true ? console.log("a") : console.log("b")}
-        <input type="submit" value="Create Dog" disabled={!trueFalse} />
+        <input
+          className={style.inputSubmit}
+          type="submit"
+          value="Create Dog"
+          disabled={!trueFalse}
+        />
       </form>
-      {inputs.temperament.length === 0
-        ? null
-        : inputs.temperament.map((el, index) => (
-            <div key={index}>
-              <p>{el}</p>
-            </div>
-          ))}
+      <div className={style.row}>
+        {inputs.temperament.length === 0
+          ? null
+          : inputs.temperament.map((el, index) => (
+              <div className={style.divTemps} key={index}>
+                <p className={style.pTemp}>{el}</p>
+                <button onClick={handlerDelete} id={el} className={style.btnX}>
+                  X
+                </button>
+              </div>
+            ))}
+      </div>
     </div>
   );
 }
