@@ -6,6 +6,7 @@ import NavBar from "../navBar/NavBar.jsx";
 import { deleteDog, getAllDogs, getDogDetail } from "../../redux/actions/actions.js";
 import style from "./DogDetail.module.css";
 import { useHistory } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function DogDetail() {
   const { id } = useParams();
@@ -22,8 +23,15 @@ export default function DogDetail() {
     e.preventDefault();
     dispatch(deleteDog(id));
     dispatch(getAllDogs());
-    alert(`${dogDetail.name} was successfully deleted`);
-    history.push("/home");
+    //alert(`${dogDetail.name} was successfully deleted`);
+    Swal.fire({
+      title: `${dogDetail.name} was successfully deleted`,
+      confirmButtonText: "OK",
+      icon: "success",
+    }).then((result) => {
+      if (result.isConfirmed) history.push("/home");
+    });
+    //history.push("/home");
   };
 
   return (

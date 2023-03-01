@@ -23,7 +23,7 @@ router.post("/CreateDog", async (req, res) => {
       where: { name: temperament },
     });
     dog.addTemperament(dogTemperament);
-    res.status(201).send("Dog sucsesfully created");
+    res.status(201).send("Dog successfully created");
   } catch (error) {
     res.status(404).send(error.toString());
   }
@@ -36,7 +36,7 @@ router.delete("/delete/:id", async (req, res) => {
     await Dog.destroy({
       where: { id },
     });
-    res.send(`${doggie.name} fue eliminado exitosamente`);
+    res.send(`${doggie.name} was successfully deleted`);
   } catch (error) {
     res.send(error.toString());
   }

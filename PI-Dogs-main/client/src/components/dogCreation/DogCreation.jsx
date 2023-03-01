@@ -12,6 +12,7 @@ import {
 } from "../../validatios.js";
 import { useHistory } from "react-router-dom";
 import style from "./DogCreation.module.css";
+import Swal from "sweetalert2";
 
 export default function DogCreation() {
   const dispatch = useDispatch();
@@ -83,10 +84,18 @@ export default function DogCreation() {
       temperament: inputs.temperament,
     };
     dispatch(createDog(result));
-    alert(`${result.name} sucsesfully created`);
     dispatch(getAllDogs());
+    //alert(`${result.name} successfully created`);
+    //Swal.fire(`${result.name} successfully created`, "", "success");
+    Swal.fire({
+      title: `${result.name} successfully created`,
+      confirmButtonText: "OK",
+      icon: "success",
+    }).then((result) => {
+      if (result.isConfirmed) history.push("/home");
+    });
 
-    history.push("/home");
+    //history.push("/home");
   };
 
   const handlerErrors = (e) => {
@@ -121,6 +130,7 @@ export default function DogCreation() {
   const multiHandlers = (e) => {
     handlerInput(e);
     handlerErrors(e);
+    //if (e.target.value === "") setTrueFalse(false);
   };
 
   const trueOrFalse = (value) => {
@@ -234,7 +244,11 @@ export default function DogCreation() {
                 </option>
               ))}
           </select>
-          {error.temperament !== "" ? <p className={style.error}>{error.temperament}</p> : null}
+          {error.temperament !== "" || inputs.temperament.length ? (
+            <p className={style.error}>{error.temperament}</p>
+          ) : (
+            <p className={style.error}>you must choose at least one temperament</p>
+          )}
         </div>
         <input
           className={inputs.temperament.length ? style.inputSubmit : style.disableInput}
