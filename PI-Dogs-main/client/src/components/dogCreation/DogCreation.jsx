@@ -13,7 +13,6 @@ import {
 import { useHistory } from "react-router-dom";
 import style from "./DogCreation.module.css";
 import Swal from "sweetalert2";
-console.log("a");
 
 export default function DogCreation() {
   const dispatch = useDispatch();

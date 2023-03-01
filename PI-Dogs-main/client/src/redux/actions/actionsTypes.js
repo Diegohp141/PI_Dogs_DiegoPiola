@@ -7,4 +7,3 @@ export const GET_DOGS_BY_TEMP = "GET_DOGS_BY_TEMP";
 export const SEARCH_DOG = "SEARCH_DOG";
 export const CREATE_DOG = "CREATE_DOG";
 export const DELETE_DOG = "DELETE_DOG";
-console.log("a");

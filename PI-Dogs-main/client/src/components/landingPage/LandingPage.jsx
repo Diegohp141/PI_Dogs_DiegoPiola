@@ -2,7 +2,6 @@ import React from "react";
 import style from "./LandingPage.module.css";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-console.log("a");
 
 const NavLink = styled(Link)`
   font-size: 8vh;

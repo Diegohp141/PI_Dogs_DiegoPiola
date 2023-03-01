@@ -3,7 +3,6 @@ import style from "./SearchBar.module.css";
 import Search from "../search/Search.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { getCreatedDogs, orderBy, getDogsByTemp } from "../../redux/actions/actions.js";
-console.log("a");
 
 export default function SearchBar({ setPage, handlerOrder, order }) {
   const dispatch = useDispatch();

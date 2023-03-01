@@ -9,7 +9,6 @@ import {
   CREATE_DOG,
   DELETE_DOG,
 } from "../actions/actionsTypes.js";
-console.log("a");
 
 const initialState = {
   allDogs: [],

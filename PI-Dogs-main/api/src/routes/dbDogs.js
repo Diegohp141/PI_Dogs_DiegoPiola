@@ -2,7 +2,6 @@ const { Router } = require("express");
 const { getDogsDb } = require("../controllers/controllers.js");
 const router = Router();
 const { Dog, Temperament } = require("../db.js");
-console.log("a");
 
 router.get("/", async (req, res) => {
   try {
