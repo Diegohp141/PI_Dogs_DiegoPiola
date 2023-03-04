@@ -39,3 +39,16 @@ export const filterArray = (arr, value) => {
   if (arr.length > 0) return result;
   return "you must  choose at least one temperament";
 };
+
+export const formatString = (str) => {
+  if (str.length <= 4) return str;
+  return [str.substring(0, 3), str.substring(3)];
+};
+
+export const validateValues = (arr, input) => {
+  let result;
+  arr.forEach((elem) => {
+    result = input[elem].info === "" ? true : false;
+  });
+  return result;
+};

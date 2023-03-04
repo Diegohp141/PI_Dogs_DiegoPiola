@@ -48,7 +48,6 @@ export default function DogDetail() {
             <h3>name: {dogDetail.name}</h3>
             <p>Life span: {dogDetail.life_span}</p>
             <p>Weight: {dogDetail.weight}</p>
-            <p>Weight: {dogDetail.weight}</p>
             <p>Height: {dogDetail.height}</p>
             <p>Temperament:{dogDetail.temperament}</p>
             {dogDetail.img ? (
