@@ -228,7 +228,7 @@ export default function DogCreation() {
               : false
           }
           className={
-            !input.temperament.length || validateValues(input.valuesNames, input)
+            disable || !input.temperament.length || validateValues(input.valuesNames, input)
               ? style.disableInput
               : style.inputSubmit
           }
